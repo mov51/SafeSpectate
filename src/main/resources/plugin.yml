@@ -6,3 +6,6 @@ prefix: SafeSpectate
 load: STARTUP
 authors: [ mov51 ]
 website: mov51.net
+commands:
+  SpectateSafe:
+    description: Spectate Safely
