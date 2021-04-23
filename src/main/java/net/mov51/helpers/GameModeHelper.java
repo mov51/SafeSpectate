@@ -1,4 +1,4 @@
-package net.mov51.commands.helpers;
+package net.mov51.helpers;
 
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
