@@ -7,7 +7,7 @@ public final class SafeSpectate extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-
+        //todo register command
     }
 
     @Override
