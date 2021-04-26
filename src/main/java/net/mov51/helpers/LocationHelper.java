@@ -40,8 +40,9 @@ public class LocationHelper {
     public static void TeleportPlayer(Player p, Location l){
         Location CurrentLocation = p.getLocation();
         if(l != CurrentLocation){
+            Location oldL = p.getLocation();
             p.teleport(l);
-            sendLog(p.getName() + " has been teleported to " + formatCoords(l));
+            sendLog(p.getName() + " has been teleported to " + formatCoords(l) + "from" + formatCoords(oldL));
         }
     }
     

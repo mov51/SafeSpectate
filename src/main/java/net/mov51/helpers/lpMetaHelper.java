@@ -48,9 +48,7 @@ public class lpMetaHelper {
 
     public static boolean isLocation(Player p){
         CachedMetaData metaData = LuckPermsAPI.getPlayerAdapter(Player.class).getMetaData(p);
-
         String s = metaData.getMetaValue(MetaKey);
-
         return s != null;
     }
 
