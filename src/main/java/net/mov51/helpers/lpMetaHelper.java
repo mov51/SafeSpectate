@@ -15,6 +15,7 @@ import static net.mov51.helpers.LocationHelper.LocationFromString;
 public class lpMetaHelper {
 
     static LuckPerms LuckPermsAPI = LuckPermsProvider.get();
+    public static String MetaKey = "spectate-location";
 
     public static void saveLocation(Player p, Location l) {
         // obtain a User instance (by any means! see above for other ways)
@@ -24,9 +25,9 @@ public class lpMetaHelper {
         // create a new MetaNode holding the level value
         // of course, this can have context/expiry/etc too!
 
-        MetaNode node = MetaNode.builder("SpectateLocation", s).build();
+        MetaNode node = MetaNode.builder(MetaKey, s).build();
         // clear any existing meta nodes with the same key - we want to override
-        user.data().clear(NodeType.META.predicate(mn -> mn.getMetaKey().equals("SpectateLocation")));
+        user.data().clear(NodeType.META.predicate(mn -> mn.getMetaKey().equals(MetaKey)));
         // add the new node
         user.data().add(node);
 
@@ -39,7 +40,7 @@ public class lpMetaHelper {
         // of course, you can get it via a User too if the player is offline.
         CachedMetaData metaData = LuckPermsAPI.getPlayerAdapter(Player.class).getMetaData(p);
 
-        String s = metaData.getMetaValue("SpectateLocation");
+        String s = metaData.getMetaValue(MetaKey);
         assert s != null;
         // query & parse the meta value
         return LocationFromString(s);
