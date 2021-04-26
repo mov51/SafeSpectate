@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import java.util.Objects;
 
 import static net.mov51.helpers.ChatHelper.sendChat;
+import static net.mov51.helpers.ChatHelper.sendLog;
 
 public class LocationHelper {
     public static String LocationToString(Location l){
@@ -22,9 +23,9 @@ public class LocationHelper {
     }
 
     public static Location LocationFromString(String s) {
-        //split the provided string by ,
-        String[] sA = s.split(",");
-
+        //split the provided string
+        String [] sA = s.split(",");
+        
         //separate the array and typecast
         World world = Bukkit.getWorld(sA[0]);
         double x = Double.parseDouble(sA[1]);
@@ -36,12 +37,16 @@ public class LocationHelper {
         //Parse then return the location
         return new Location(world, x, y, z, Y, P);
     }
+
     public static void TeleportPlayer(Player p, Location l){
         Location CurrentLocation = p.getLocation();
         if(l != CurrentLocation){
             p.teleport(l);
-            sendChat("You have been teleported back to " + Math.round(l.getX()) + "," + Math.round(l.getX()) + "," + Math.round(l.getZ()) + ".", p);
+            sendLog(p.getName() + " has been teleported to " + formatCoords(l));
         }
-
+    }
+    
+    public static String formatCoords(Location l){
+        return Math.round(l.getX()) + "," + Math.round(l.getX()) + "," + Math.round(l.getZ());
     }
 }

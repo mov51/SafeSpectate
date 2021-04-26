@@ -45,4 +45,17 @@ public class lpMetaHelper {
         // query & parse the meta value
         return LocationFromString(s);
     }
+
+    public static boolean isLocation(Player p){
+        CachedMetaData metaData = LuckPermsAPI.getPlayerAdapter(Player.class).getMetaData(p);
+
+        String s = metaData.getMetaValue(MetaKey);
+
+        return s != null;
+    }
+
+    public static void clearLocation(Player p){
+        User user = LuckPermsAPI.getPlayerAdapter(Player.class).getUser(p);
+        user.data().clear(NodeType.META.predicate(mn -> mn.getMetaKey().equals(MetaKey)));
+    }
 }
