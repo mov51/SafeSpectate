@@ -7,7 +7,9 @@ load: STARTUP
 authors: [ mov51 ]
 website: mov51.net
 commands:
-  /gmsp:
+  gmsp:
     description: Spectate Safely
-  /gms:
+  gms:
     description: Survive Safely
+  gmso:
+    description: Override the return teleport
