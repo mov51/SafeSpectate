@@ -57,5 +57,6 @@ public class lpMetaHelper {
     public static void clearLocation(Player p){
         User user = LuckPermsAPI.getPlayerAdapter(Player.class).getUser(p);
         user.data().clear(NodeType.META.predicate(mn -> mn.getMetaKey().equals(MetaKey)));
+        LuckPermsAPI.getUserManager().saveUser(user);
     }
 }
