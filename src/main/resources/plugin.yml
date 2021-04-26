@@ -7,5 +7,7 @@ load: STARTUP
 authors: [ mov51 ]
 website: mov51.net
 commands:
-  SpectateSafe:
+  /gmsp:
     description: Spectate Safely
+  /gms:
+    description: Survive Safely
