@@ -41,20 +41,27 @@ public class lpMetaHelper {
         CachedMetaData metaData = LuckPermsAPI.getPlayerAdapter(Player.class).getMetaData(p);
 
         String s = metaData.getMetaValue(MetaKey);
+        //assume that metadata is true because of previous out-of-function check
         assert s != null;
         // query & parse the meta value
         return LocationFromString(s);
     }
 
     public static boolean isLocation(Player p){
+        //create cached metadata object
         CachedMetaData metaData = LuckPermsAPI.getPlayerAdapter(Player.class).getMetaData(p);
+        //get metadata by key
         String s = metaData.getMetaValue(MetaKey);
+        //return true if metadata exists
         return s != null;
     }
 
     public static void clearLocation(Player p){
+        //create user object
         User user = LuckPermsAPI.getPlayerAdapter(Player.class).getUser(p);
+        //clear metadata by key
         user.data().clear(NodeType.META.predicate(mn -> mn.getMetaKey().equals(MetaKey)));
+        //REMEMBER TO SAVE
         LuckPermsAPI.getUserManager().saveUser(user);
     }
 }
