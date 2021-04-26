@@ -7,7 +7,6 @@ import org.bukkit.entity.Player;
 
 import java.util.Objects;
 
-import static net.mov51.helpers.ChatHelper.sendChat;
 import static net.mov51.helpers.ChatHelper.sendLog;
 
 public class LocationHelper {

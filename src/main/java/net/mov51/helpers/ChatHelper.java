@@ -1,6 +1,5 @@
 package net.mov51.helpers;
 
-import net.mov51.SafeSpectate;
 import org.bukkit.entity.Player;
 
 import static net.mov51.SafeSpectate.chatPrefix;
