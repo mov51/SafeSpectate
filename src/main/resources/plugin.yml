@@ -3,9 +3,10 @@ version: ${project.version}
 main: net.mov51.SafeSpectate
 api-version: 1.16
 prefix: SafeSpectate
-load: STARTUP
+load: POSTWORLD
 authors: [ mov51 ]
 website: mov51.net
+depend: [LuckPerms]
 commands:
   gmsp:
     description: Spectate Safely
