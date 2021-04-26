@@ -22,8 +22,10 @@ public class ChatHelper {
         switch (type){
             case "noPerm":
                 sendChat("Sorry! You don't have permission to do that! If you need help please contact staff!",p);
+                break;
             case "noOverride":
                 sendChat("Sorry! Only staff members can avoid the return teleport!",p);
+                break;
         }
     }
 }
