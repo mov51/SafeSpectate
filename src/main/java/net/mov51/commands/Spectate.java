@@ -1,8 +1,6 @@
 package net.mov51.commands;
 
-import net.mov51.helpers.ChatHelper;
 import net.mov51.helpers.GameModeHelper;
-import net.mov51.helpers.lpMetaHelper;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -14,7 +12,6 @@ import static net.mov51.helpers.ChatHelper.sendChat;
 import static net.mov51.helpers.ChatHelper.sendWarn;
 import static net.mov51.helpers.LocationHelper.formatCoords;
 import static net.mov51.helpers.lpMetaHelper.saveLocation;
-import static net.mov51.helpers.lpMetaHelper.getLocation;
 
 public class Spectate implements CommandExecutor {
     @Override

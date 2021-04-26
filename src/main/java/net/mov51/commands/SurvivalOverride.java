@@ -10,9 +10,9 @@ import org.bukkit.entity.Player;
 
 import static net.mov51.helpers.ChatHelper.sendChat;
 import static net.mov51.helpers.ChatHelper.sendWarn;
-import static net.mov51.helpers.LocationHelper.TeleportPlayer;
 import static net.mov51.helpers.LocationHelper.formatCoords;
 import static net.mov51.helpers.lpMetaHelper.getLocation;
+import static net.mov51.helpers.lpMetaHelper.isLocation;
 
 public class SurvivalOverride implements CommandExecutor {
     @Override
@@ -20,8 +20,12 @@ public class SurvivalOverride implements CommandExecutor {
         if(sender instanceof Player){
             Player p = (Player) sender;
             if(p.hasPermission("SafeSpectate.SpectateOverride")){
-                Location l = getLocation(p);
-                sendChat("You've overridden your return to "+ formatCoords(l) +".", p);
+                if(isLocation(p)) {
+                    Location l = getLocation(p);
+                    sendChat("You've overridden your return to " + formatCoords(l) + ".", p);
+                }else{
+                    sendChat("There's no location to override", p);
+                }
                 GameModeHelper.smartSetGameMode(p, GameMode.SURVIVAL);
             }else{
                 sendWarn(p,"noOverride");
