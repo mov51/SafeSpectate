@@ -19,14 +19,18 @@ public class Spectate implements CommandExecutor {
         if(sender instanceof Player){
             Player p = (Player) sender;
             if(p.hasPermission("SafeSpectate.Spectate")){
-                //Save location to LuckPerms
-                Location l = p.getLocation();
-                saveLocation(p, l);
-                //output location
+                if(p.getGameMode() != GameMode.SPECTATOR){
+                    //Save location to LuckPerms
+                    Location l = p.getLocation();
+                    saveLocation(p, l);
+                    //output location
 //                ChatHelper.sendChat("you are at" + getLocation(p),p);
-                //Set game mode to spectator
-                GameModeHelper.smartSetGameMode(p,GameMode.SPECTATOR);
-                sendChat("You will be returned to " + formatCoords(l) + " when you exit spectator mode!", p);
+                    //Set game mode to spectator
+                    GameModeHelper.smartSetGameMode(p,GameMode.SPECTATOR);
+                    sendChat("You will be returned to " + formatCoords(l) + " when you exit spectator mode!", p);
+                }else{
+                    sendChat("You're already in Spectator mode!", p);
+                }
             }else{
                 //warns player that they don't have the required permission
                 sendWarn(p,"noPerm");
