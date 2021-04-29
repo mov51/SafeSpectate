@@ -1,6 +1,7 @@
 package net.mov51.commands;
 
 import net.mov51.helpers.GameModeHelper;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -8,11 +9,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Objects;
+
 import static net.mov51.helpers.ChatHelper.sendChat;
 import static net.mov51.helpers.ChatHelper.sendWarn;
 import static net.mov51.helpers.LocationHelper.TeleportPlayer;
 import static net.mov51.helpers.LocationHelper.formatCoords;
 import static net.mov51.helpers.lpMetaHelper.*;
+import static org.bukkit.Bukkit.getServer;
 
 public class Survive implements CommandExecutor {
     @Override
@@ -30,7 +34,15 @@ public class Survive implements CommandExecutor {
                     GameModeHelper.smartSetGameMode(p, GameMode.SURVIVAL);
                     clearLocation(p);
                 }else{
-                    sendChat("There isn't a location to return you to! Did you set yourself to spectator yet?", p);
+                    Location l = p.getBedSpawnLocation();
+                    if(l != null){
+                        TeleportPlayer(p,l);
+                    }else{
+                        Location l2 = getServer().getWorlds().get(0).getSpawnLocation();
+                        TeleportPlayer(p,l2);
+                    }
+                    GameModeHelper.smartSetGameMode(p, GameMode.SURVIVAL);
+                    sendChat("No Location to return to. You've been sent to your spawn instead <3", p);
                 }
             }else{
                 //warns player that they don't have the required permission
