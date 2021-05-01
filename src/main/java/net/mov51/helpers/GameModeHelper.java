@@ -10,7 +10,7 @@ public class GameModeHelper {
         //receives a bukkit player object and bukkit GameMode object
         GameMode oldG = p.getGameMode();
         p.setGameMode(g);
-        sendLog(p.getName() + " has been set to gamemode " + g + "from" + oldG);
+        sendLog(p.getName() + " has been set to gamemode " + g + " from " + oldG);
         //sets the user to the provided GameMode as long as they have the generated permission
     }
 }
