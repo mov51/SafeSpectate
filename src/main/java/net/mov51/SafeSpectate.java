@@ -23,6 +23,7 @@ public final class SafeSpectate extends JavaPlugin {
         Objects.requireNonNull(getCommand("gms")).setExecutor(new Survive());
         Objects.requireNonNull(getCommand("gmso")).setExecutor(new SurvivalOverride());
         Objects.requireNonNull(getCommand("gmtoggle")).setExecutor(new gmToggle());
+        Objects.requireNonNull(getCommand("gmreturn")).setExecutor(new gmReturn());
 
         RegisteredServiceProvider<LuckPerms> LPprovider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
         if(LPprovider != null){

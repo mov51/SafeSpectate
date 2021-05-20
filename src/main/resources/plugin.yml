@@ -16,3 +16,5 @@ commands:
     description: Override the return teleport
   gmToggle:
     description: toggle current gamemode between survival and spectator
+  gmReturn:
+    description: toggle current gamemode between survival and spectator
