@@ -7,8 +7,9 @@ import org.bukkit.entity.Player;
 import static net.mov51.helpers.ChatHelper.sendWarn;
 
 public class PermissionHelper {
-    public static boolean hasPerm(Player p,String Perm){
-        if(p.hasPermission(Perm))
+
+    public static boolean hasPerm(Player p,String Permission){
+        if(p.hasPermission(Permission))
             return true;
         else{
             sendWarn(p,"noPerm");
@@ -16,18 +17,27 @@ public class PermissionHelper {
         }
     }
 
-    public static boolean hasPerm(CommandSender s,String Perm) {
-        if (isPlayer(s)) {
-            Player p = (Player) s;
-            if (p.hasPermission(Perm))
-                return true;
-            else {
-                sendWarn(p, "noPerm");
-                return false;
-            }
-        }else{
+    public static boolean hasPerm(CommandSender sender,String Permission){
+        if(sender instanceof Player){
+            return hasPerm((Player) sender, Permission);
+        }
+        return false;
+    }
+
+    public static boolean hasPermMessage(Player p,String Permission,String message) {
+        if (p.hasPermission(Permission)){
+            return true;
+        }
+        else {
+            sendWarn(p, message);
             return false;
         }
+    }
+    public static boolean hasPermMessage(CommandSender sender,String Permission,String message){
+        if(sender instanceof Player){
+            return hasPermMessage((Player) sender, Permission,message);
+        }
+        return false;
     }
 
     public static boolean isPlayer(CommandSender sender){
@@ -44,14 +54,6 @@ public class PermissionHelper {
     }
 
     public static boolean isGameMode(CommandSender s, GameMode G){
-        return getPlayer(s).getGameMode() == G;
-    }
-
-    public static Player getPlayer(CommandSender s){
-        if (s instanceof Player)
-            return (Player) s;
-        else
-            return null;
-
+        return ((Player)s).getGameMode() == G;
     }
 }

@@ -21,7 +21,7 @@ public class Spectate implements CommandExecutor {
                     if (!isGameMode(sender, G)) {
                         GameModeToggle(sender);
                     } else {
-                        sendChat("You're already in Spectator mode!", getPlayer(sender));
+                        sendChat("You're already in Spectator mode!", sender);
                     }
                 }
             } else if (args.length == 1) {

@@ -6,9 +6,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 import static net.mov51.helpers.ChatHelper.sendChat;
+import static net.mov51.helpers.GameModeHelper.setSurvivalAndReturn;
 import static net.mov51.helpers.PermissionHelper.*;
-import static net.mov51.helpers.PermissionHelper.getPlayer;
-import static net.mov51.helpers.ToggleHelper.GameModeToggle;
 import static net.mov51.helpers.ToggleHelper.toggleOtherGameMode;
 
 public class Survive implements CommandExecutor {
@@ -20,9 +19,9 @@ public class Survive implements CommandExecutor {
             if (args.length == 0) {
                 if (hasPerm(sender, "SafeSpectate.Survive")) {
                     if (!isGameMode(sender, G)) {
-                        GameModeToggle(sender);
+                        setSurvivalAndReturn(sender);
                     } else {
-                        sendChat("You're already in Survival mode!", getPlayer(sender));
+                        sendChat("You're already in Survival mode!", sender);
                     }
                 }
             } else if (args.length == 1) {

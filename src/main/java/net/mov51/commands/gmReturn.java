@@ -8,13 +8,14 @@ import org.bukkit.entity.Player;
 
 import static net.mov51.helpers.ChatHelper.sendChat;
 import static net.mov51.helpers.LocationHelper.formatCoords;
+import static net.mov51.helpers.PermissionHelper.isPlayer;
 import static net.mov51.helpers.lpMetaHelper.getLocation;
 
 public class gmReturn implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if(sender instanceof Player){
+        if(isPlayer(sender)){
             Player p = ((Player) sender).getPlayer();
             assert p != null;
             if(p.getGameMode() == GameMode.SPECTATOR){
