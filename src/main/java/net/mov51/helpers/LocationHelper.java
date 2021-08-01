@@ -49,6 +49,6 @@ public class LocationHelper {
     public static String formatCoords(Location l){
         //format provided location into readable, rounded coordinates
         //todo add an optional world output for cross-world teleports
-        return Math.round(l.getX()) + "," + Math.round(l.getX()) + "," + Math.round(l.getZ());
+        return Math.round(l.getX()) + "," + Math.round(l.getY()) + "," + Math.round(l.getZ());
     }
 }
