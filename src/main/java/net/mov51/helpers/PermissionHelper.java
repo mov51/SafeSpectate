@@ -1,6 +1,5 @@
 package net.mov51.helpers;
 
-import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -47,13 +46,5 @@ public class PermissionHelper {
             sender.sendMessage("You must be a player to use this command!");
             return false;
         }
-    }
-
-    public static boolean isGameMode(Player p, GameMode G){
-        return p.getGameMode() == G;
-    }
-
-    public static boolean isGameMode(CommandSender s, GameMode G){
-        return ((Player)s).getGameMode() == G;
     }
 }

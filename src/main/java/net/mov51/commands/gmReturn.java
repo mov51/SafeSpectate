@@ -7,7 +7,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import static net.mov51.helpers.ChatHelper.sendChat;
-import static net.mov51.helpers.LocationHelper.formatCoords;
+import static net.mov51.helpers.GameModeHelper.isGameMode;
+import static net.mov51.helpers.LocationHelper.formatCords;
 import static net.mov51.helpers.PermissionHelper.isPlayer;
 import static net.mov51.helpers.lpMetaHelper.getLocation;
 
@@ -18,8 +19,8 @@ public class gmReturn implements CommandExecutor {
         if(isPlayer(sender)){
             Player p = ((Player) sender).getPlayer();
             assert p != null;
-            if(p.getGameMode() == GameMode.SPECTATOR){
-                String l = formatCoords(getLocation(p));
+            if(isGameMode(p,GameMode.SPECTATOR)){
+                String l = formatCords(getLocation(p));
                 sendChat("You will be teleported to " + l + " when you return to survival mode.",p);
             }else{
                 sendChat("You aren't in spectator mode!",p);

@@ -7,10 +7,6 @@ import static net.mov51.SafeSpectate.chatPrefix;
 import static net.mov51.SafeSpectate.logPrefix;
 
 public class ChatHelper {
-
-    //prefix used for plugin messages
-
-
     public static void sendChat(String message, Player player){
         player.sendMessage(chatPrefix + message);
     }

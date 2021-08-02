@@ -42,11 +42,11 @@ public class LocationHelper {
         if(l != CurrentLocation){
             Location oldL = p.getLocation();
             p.teleport(l);
-            sendLog(p.getName() + " has been teleported to " + formatCoords(l) + "from" + formatCoords(oldL));
+            sendLog(p.getName() + " has been teleported to " + formatCords(l) + "from" + formatCords(oldL));
         }
     }
     
-    public static String formatCoords(Location l){
+    public static String formatCords(Location l){
         //format provided location into readable, rounded coordinates
         //todo add an optional world output for cross-world teleports
         return Math.round(l.getX()) + "," + Math.round(l.getY()) + "," + Math.round(l.getZ());

@@ -6,7 +6,7 @@ import org.bukkit.command.CommandSender;
 
 import static net.mov51.helpers.PermissionHelper.hasPerm;
 import static net.mov51.helpers.PermissionHelper.isPlayer;
-import static net.mov51.helpers.ToggleHelper.GameModeToggle;
+import static net.mov51.helpers.GameModeHelper.GameModeToggle;
 
 public class gmToggle implements CommandExecutor {
     @Override
