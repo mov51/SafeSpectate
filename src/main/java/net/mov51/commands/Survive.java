@@ -1,6 +1,5 @@
 package net.mov51.commands;
 
-import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,7 +11,6 @@ import static net.mov51.helpers.PermissionHelper.*;
 public class Survive implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        GameMode G = GameMode.SURVIVAL;
         if (isPlayer(sender)) {
             //If any args are present, assume that they are trying to change other players.
             if (args.length == 0) {
