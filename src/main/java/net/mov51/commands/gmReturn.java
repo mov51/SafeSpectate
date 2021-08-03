@@ -21,9 +21,9 @@ public class gmReturn implements CommandExecutor {
             assert p != null;
             if(isGameMode(p,GameMode.SPECTATOR)){
                 String l = formatCords(getLocation(p));
-                sendChat("You will be teleported to " + l + " when you return to survival mode.",p);
+                sendChat(p, "You will be teleported to " + l + " when you return to survival mode.");
             }else{
-                sendChat("You aren't in spectator mode!",p);
+                sendChat(p, "You aren't in spectator mode!");
             }
         }
 

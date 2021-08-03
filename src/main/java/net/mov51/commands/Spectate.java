@@ -1,6 +1,5 @@
 package net.mov51.commands;
 
-import net.mov51.helpers.GameModeHelper;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -21,7 +20,7 @@ public class Spectate implements CommandExecutor {
                     if (!isGameMode(sender, G)) {
                         setSpectatorAndSave(sender);
                     } else {
-                        sendChat("You're already in Spectator mode!", sender);
+                        sendChat(sender, "You're already in Spectator mode!");
                     }
                 }
             } else if (args.length == 1) {

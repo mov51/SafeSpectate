@@ -15,6 +15,7 @@ public final class SafeSpectate extends JavaPlugin {
     public static String logPrefix = "[SafeSpectate] - ";
     //todo add a config for ChatPrefix value
     public static String chatPrefix = "§6§l[§2Naspen§6§l]§r";
+    public static String chatWarnColor = "#9C0E0E";
 
     @Override
     public void onEnable() {

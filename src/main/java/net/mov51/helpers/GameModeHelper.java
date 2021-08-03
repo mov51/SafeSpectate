@@ -41,7 +41,7 @@ public class GameModeHelper {
                     break;
                 default:
                     //If the player isn't in Spectator or Survival then they need to specify their intent
-                    sendChat("You're not Toggleable! Please use /gms or /gmsp to specify what gameMode you want to be in!",p);
+                    sendChat(p, "You're not Toggleable! Please use /gms or /gmsp to specify what gameMode you want to be in!");
             }
         }
         return false;
@@ -55,7 +55,7 @@ public class GameModeHelper {
         //Set game mode to spectator
         GameModeHelper.smartSetGameMode(p,GameMode.SPECTATOR);
         //warn player of return location
-        sendChat("You will be returned to " + formatCords(l) + " when you exit spectator mode!", p);
+        sendChat(p, "You will be returned to " + formatCords(l) + " when you exit spectator mode!");
     }
 
     public static void setSpectatorAndSave(CommandSender sender){
@@ -74,10 +74,10 @@ public class GameModeHelper {
                 //Toggle their GameMode
                 setSpectatorAndSave(p);
                 //Notify the player of who triggered the change
-                sendChat("You've been changed to Spectator by " + pSender.getName() +".",p);
+                sendChat(p, "You've been changed to Spectator by " + pSender.getName() +".");
             }
         }else{
-            sendChat("That player isn't online!",pSender);
+            sendChat(pSender, "That player isn't online!");
         }
     }
 
@@ -85,9 +85,9 @@ public class GameModeHelper {
     public static void setSurvivalAndOverride(Player p){
         if(isLocation(p)) {
             Location l = getLocation(p);
-            sendChat("You've overridden your return to " + formatCords(l) + ".", p);
+            sendChat(p, "You've overridden your return to " + formatCords(l) + ".");
         }else{
-            sendChat("There's no location to override", p);
+            sendChat(p, "There's no location to override");
         }
         GameModeHelper.smartSetGameMode(p, GameMode.SURVIVAL);
     }
@@ -107,7 +107,7 @@ public class GameModeHelper {
             //Teleports player to the acquired location
             TeleportPlayer(p,l);
             //Warn player of return location
-            sendChat("You've been returned to " + formatCords(l) + "!", p);
+            sendChat(p, "You've been returned to " + formatCords(l) + "!");
             //Set new GameMode
             GameModeHelper.smartSetGameMode(p, GameMode.SURVIVAL);
             //Remove stored Return Location
@@ -129,7 +129,7 @@ public class GameModeHelper {
             //Now that they've been moved, set their GameMode
             GameModeHelper.smartSetGameMode(p, GameMode.SURVIVAL);
             //Warn the player about why they were sent here
-            sendChat("No Location to return to. You've been sent to your spawn instead <3", p);
+            sendChat(p, "No Location to return to. You've been sent to your spawn instead <3");
         }
     }
 
@@ -149,10 +149,10 @@ public class GameModeHelper {
                 //Toggle their GameMode
                 setSpectatorAndSave(p);
                 //Notify the player of who triggered the change
-                sendChat("You've been changed to Survival by " + pSender.getName() +".",p);
+                sendChat(p, "You've been changed to Survival by " + pSender.getName() +".");
             }
         }else{
-            sendChat("That player isn't online!",pSender);
+            sendChat(pSender, "That player isn't online!");
         }
     }
 

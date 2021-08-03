@@ -22,7 +22,7 @@ public class Survive implements CommandExecutor {
                     if (!GameModeHelper.isGameMode(sender, G)) {
                         setSurvivalAndReturn(sender);
                     } else {
-                        sendChat("You're already in Survival mode!", sender);
+                        sendChat(sender, "You're already in Survival mode!");
                     }
                 }
             } else if (args.length == 1) {
