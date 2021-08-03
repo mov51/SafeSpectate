@@ -27,6 +27,11 @@ public class ChatHelper {
         System.out.println(logPrefix + message);
     }
 
+    public static void sendWarn(CommandSender sender, String message){
+        Player p = (Player) sender;
+        sendWarn(p,message);
+    }
+
     public static void sendWarn(Player p, String message){
         switch (message){
             case "noPerm":

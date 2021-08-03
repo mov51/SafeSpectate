@@ -1,5 +1,6 @@
 package net.mov51.commands;
 
+import net.mov51.helpers.ChatHelper;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,7 +24,7 @@ public class gmReturn implements CommandExecutor {
                 String l = formatCords(getLocation(p));
                 sendChat(p, "You will be teleported to " + l + " when you return to survival mode.");
             }else{
-                sendChat(p, "You aren't in spectator mode!");
+                ChatHelper.sendWarn(p, "You aren't in spectator mode!");
             }
         }
 
